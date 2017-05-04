@@ -23,8 +23,7 @@ install:
 test_script:
   - node --version
   - npm --version
-  - npm test
-  - where mocha
+  - npm test  
   - cd c:\
   - dir /s mocha*
 
