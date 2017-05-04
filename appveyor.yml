@@ -24,6 +24,8 @@ test_script:
   - node --version
   - npm --version
   - npm test
+  - where mocha
+  - dir /s mocha*
 
 # cache npm modules
 cache:
