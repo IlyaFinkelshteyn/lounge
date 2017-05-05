@@ -12,6 +12,8 @@ skip_branch_with_pr: true
 
 environment:
   nodejs_version: '4'
+  APPVEYOR_RDP_PASSWORD:
+    secure: dNPsSiN7aAwAe2K7Aw+IVw==
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -24,12 +26,13 @@ test_script:
   - node --version
   - npm --version
   - npm test  
-  - cd c:\
-  - dir /s mocha*
-
+  
 # cache npm modules
 cache:
   - '%AppData%\npm-cache -> package.json'
 
 # Don't actually build
 build: off
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
