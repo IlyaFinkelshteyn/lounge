@@ -20,7 +20,7 @@
     "build:webpack": "webpack --progress",
     "watch": "webpack --watch",
     "test": "npm-run-all -c test:* lint",
-    "test:mocha": "mocha test/**/*Test.js",
+    "test:mocha": "mocha test/*.js",
     "lint": "npm-run-all -c lint:*",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.css\"",
